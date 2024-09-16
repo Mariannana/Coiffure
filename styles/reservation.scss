@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+$text-color: #353434;
+$subtext-color: rgba(53, 52, 52, 0.75);
+$main-color: #B79D78;
+$secondary-color: #86A4B5;
+$btnHover-color: #708b9a;
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #F1F1F1;
+    font-family: 'Montserrat';
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    color: $text-color;
+
+    span.color {
+        color: $main-color;
+    }
+}
+
+h3 {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 0;
+    color: $text-color;
+}
+
+h4 {
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0;
+    color: $subtext-color;
+
+    span.highlight {
+        color: $text-color;
+    }
+}
+
+.mainIcon {
+    width: 35px;
+    height: 35px;
+    background: $secondary-color;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+
+    i {
+        color: #fff;
+        font-size: 25px;
+    }
+}
+
+button {
+    background: $secondary-color;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 24px;
+    gap: 15px;
+
+    width: fit-content;
+    color: #fff;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+
+    transition: color .2s ease, background .2s ease;
+
+    &:hover {
+        cursor: pointer;
+        background: $btnHover-color;
+        color: rgba(255, 255, 255, 0.75);
+    }
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 50px;
+    .row {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+    .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 15px;
+    
+        div {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin: 0;
+        }
+    }
+    .inputs {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        input[type=text], input[type=tel] {
+            background: #DBDBD6;
+            border-radius: 6px;
+            border: none;
+            outline: none;
+            padding: 13px;
+            font-family: 'Montserrat';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 12px;
+        }
+    }
+    
+}
+
+.select-box {
+    display: flex;
+    width: 200px;
+    flex-direction: column;
+    font-family: 'Montserrat';
+    font-style: normal;
+    background: #DBDBD6;
+    border-radius: 6px;
+}
+
+.select-box .options-container {
+    color: #f5f6fa;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    overflow: hidden;
+    box-sizing: border-box;
+    order: 1;
+}
+
+.selected {
+    font-weight: 600;
+    font-size: 12px;
+    color: $subtext-color;
+    position: relative;
+    padding: 13px;
+    order: 0;
+}
+
+.select-box .options-container.active {
+    max-height: 240px;
+    opacity: 1;
+    overflow-y: scroll;
+}
+
+.select-box .options-container.active + .selected::after {
+    transform: rotateX(180deg);
+    top: -6px;
+}
+
+.select-box .options-container::-webkit-scrollbar {
+    width: 8px;
+    background: transparent;
+    border-radius: 0 8px 8px 0;
+}
+
+.select-box .options-container::-webkit-scrollbar-thumb {
+    background: rgba(134, 164, 181, 0.5);
+    border-radius: 8px;
+}
+
+.select-box .separator {
+    display: block;
+    height: 2px;
+    margin: 4px 12px;
+    background: rgba(53, 52, 52, 0.25);
+    border-radius: 62px;
+}
+
+.select-box .optionTitle {
+    font-weight: 600;
+    font-size: 12px;
+    padding: 6px;
+    margin: 1px 12px;
+    border-radius: 4px;
+    color: $subtext-color;
+}
+
+.select-box .option, .selected {
+    font-weight: 600;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.selected {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    span {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        p {
+            margin: 0;
+        }
+    }
+}
+
+.select-box .option {
+    padding: 6px;
+    margin: 0 12px;
+    border-radius: 4px;
+    color: $text-color;
+
+    &:last-child {
+        margin-bottom: 13px;
+    }
+}
+
+.select-box .option:hover {
+    background: rgba(134, 164, 181, 0.5);
+}
+
+.select-box label {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+
+    p {
+        margin: 0;
+    }
+}
+
+.select-box .option .radio {
+    display: none;
+}
